@@ -72,18 +72,17 @@ public class VarastoTest {
     }
 
     @Test 
-    public void yliTilavuudenEiVoiLisata() {
-        varasto.lisaaVarastoon(10);
-        varasto.otaVarastosta(3);
-        varasto.lisaaVarastoon(15);
-        assertEquals(10, varasto.getSaldo(), vertailuTarkkuus);
-    }
-    
-    @Test 
     public void saldoEiMeneMiinukselle() {
         varasto.lisaaVarastoon(10);
         varasto.otaVarastosta(30);
         assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
     }
 
+    @Test 
+    public void suurempiKuinTilavuusEiVoiLisata() {
+        varasto.lisaaVarastoon(10);
+        varasto.otaVarastosta(3);
+        varasto.lisaaVarastoon(15);
+        assertEquals(10, varasto.getSaldo(), vertailuTarkkuus);
+    }
 }
